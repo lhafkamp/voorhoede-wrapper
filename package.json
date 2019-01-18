@@ -1,0 +1,8 @@
+{
+  "name": "voorhoede-wrapper",
+  "version": "1.0.0",
+  "description": "GraphQL wrapper for a REST api",
+  "main": "server.js",
+  "author": "Luuk Hafkamp",
+  "license": "MIT"
+}
