@@ -4,5 +4,8 @@
   "description": "GraphQL wrapper for a REST api",
   "main": "server.js",
   "author": "Luuk Hafkamp",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.17.0"
+  }
 }

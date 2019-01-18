@@ -1,0 +1,226 @@
+type Query {
+  blog: Blog
+  contact(language: Language!): Contact
+  eventOverview(language: Language!): EventOverview
+  events(first: Int, language: Language!, offset: Int): [Event]
+  home(language: Language!): Home
+  jobs(language: Language!): [Job]
+  job(language: Language!, slug: String!): Job
+  posts(first: Int, offset: Int): [Post]
+  post(slug: String!): Post
+  projects(first: Int, language: Language!, offset: Int): [Project]
+  project(language: Language!, slug: String!): Project
+  team(language: Language!): Team
+  work(language: Language!): Work
+}
+
+type Blog {
+  title: String
+  subtitle: String
+  description: String
+  keywords: String
+}
+
+union BodyItem = HtmlItem | ImageItem
+
+type Contact {
+  body: String
+  bodyItems: [BodyItem]
+  keywords: String
+  navItems: [NavItem]
+  social: Social
+  subtitle: String
+  title: String
+}
+
+type Event {
+  date: String
+  description: String
+  title: String
+  url: String
+}
+
+type EventOverview {
+  body: String
+  bodyItems: [BodyItem]
+  keywords: String
+  navItems: [NavItem]
+  social: Social
+  subtitle: String
+  title: String
+}
+
+type Home {
+  body: String
+  bodyItems: [BodyItem]
+  headerTitle: String
+  highlights: [Project]
+  keywords: String
+  navItems: [NavItem]
+  services: [Service]
+  servicesDescription: String
+  servicesHeader: String
+  social: Social
+  subtitle: String
+  title: String
+  usps: String
+}
+
+type HtmlItem {
+  type: String
+  html: String
+}
+
+type Image {
+  format: String
+  size: Int
+  width: Int
+  height: Int
+  title: String
+  alt: String
+  url: String
+}
+
+type ImageItem {
+  type: String
+  alt: String
+  title: String
+  src: String
+  format: String
+  height: Int
+  width: Int
+}
+
+type Job {
+  body: String
+  bodyItems: [BodyItem]
+  description: String
+  keywords: String
+  navItems: [NavItem]
+  order: Int
+  published: Boolean
+  slug: String
+  slugI18n: SlugI18n
+  teaser: String
+  title: String
+  url: String
+}
+
+enum Language {
+  en
+  nl
+}
+
+type NavItem {
+  id: String
+  html: String
+  level: Int
+}
+
+type Person {
+  image: Image
+  slug: String
+  lastName: String
+  name: String
+}
+
+type Post {
+  body: String
+  bodyItems: [BodyItem]
+  images: [Image]
+  teaser: String
+  authors: [Person]
+  social: Social
+  publishDate: String
+  published: Boolean
+  slug: String
+  title: String
+  navItems: [NavItem]
+}
+
+type Project {
+  body: String
+  bodyItems: [BodyItem]
+  images: [Image]
+  social: Social
+  published: Boolean
+  slug: String
+  slugI18n: SlugI18n
+  title: String
+  subtitle: String
+  excerpt: String
+  navItems: [NavItem]
+  isExternalLink: Boolean
+  linkText: String
+  linkUrl: String
+  contact: Person
+  service: Service
+  summary: String
+  techniques: String
+}
+
+type Service {
+  itemType: String
+  images: [Image]
+  actionText: String
+  summary: String
+  body: String
+  bodyItems: [BodyItem]
+  teaser: String
+  tagline: String
+  title: String
+  subtitle: String
+  icon: String
+  keywords: String
+  social: Social
+  slug: String
+}
+
+type SlugI18n {
+  en: String
+  nl: String
+}
+
+type Social {
+  title: String
+  description: String
+  image: Image
+}
+
+type Team {
+  body: String
+  bodyItems: [BodyItem]
+  keywords: String
+  navItems: [NavItem]
+  social: Social
+  subtitle: String
+  teamGrid: [TeamGridItem]
+  title: String
+}
+
+type TeamGridItem {
+  callToActionLabel: String
+  description: String
+  image: Image
+  imageMobile: Image
+  imageIsFullWidth: Boolean
+  imageIsLeft: Boolean
+  title: String
+}
+
+type Work {
+  body: String
+  bodyItems: [BodyItem]
+  highlights: [Project]
+  keywords: String
+  navItems: [NavItem]
+  projects: [Project]
+  portfolioTitle: String
+  portfolioSubitle: String
+  services: [Service]
+  servicesDescription: String
+  servicesHeader: String
+  social: Social
+  subtitle: String
+  title: String
+}
