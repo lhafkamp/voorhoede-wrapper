@@ -1,3 +1,4 @@
+require('dotenv').config({ path: 'variables.env' })
 const { GraphQLServer } = require('graphql-yoga')
 const Query = require('./resolvers/Query')
 const port = 'http://localhost:4000'
