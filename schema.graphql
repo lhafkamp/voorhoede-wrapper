@@ -146,7 +146,7 @@ type Project {
   published: Boolean
   slug: String
   slugI18n: SlugI18n
-  title: String
+  title: String!
   subtitle: String
   excerpt: String
   navItems: [NavItem]
