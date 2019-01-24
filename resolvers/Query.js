@@ -11,6 +11,10 @@ const Query = {
       const { language, slug } = args
       return fetch(`${api}/projects/${slug}?language=${language}`).then(response => response.json())
     },
+    jobs: (obj, args) => {
+      const { language } = args
+      return fetch(`${api}/jobs?language=${language}`).then(response => response.json())
+    },
   },
 }
 
